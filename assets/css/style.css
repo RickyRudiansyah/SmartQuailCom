@@ -128,10 +128,10 @@ html, html *, html *::before, html *::after {
 }
 
 /* --- Dark mode toggle icon --- */
-#dark-toggle .sun { display: none; }
-#dark-toggle .moon { display: block; }
-html.dark #dark-toggle .sun { display: block; }
-html.dark #dark-toggle .moon { display: none; }
+#dark-toggle .sun, #dark-toggle-mobile .sun { display: none; }
+#dark-toggle .moon, #dark-toggle-mobile .moon { display: block; }
+html.dark #dark-toggle .sun, html.dark #dark-toggle-mobile .sun { display: block; }
+html.dark #dark-toggle .moon, html.dark #dark-toggle-mobile .moon { display: none; }
 
 /* --- Background Dots Pattern --- */
 .bg-dots {
@@ -168,3 +168,70 @@ html.dark .nav-link.active-link {
 .footer-glow {
   background: radial-gradient(ellipse at 50% 0%, rgba(13, 148, 136, 0.07) 0%, transparent 70%);
 }
+
+/* --- Architecture Block Hover --- */
+.arch-block {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+.arch-block:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.12);
+}
+
+/* --- Architecture Card (Hero sidebar) --- */
+.arch-card {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+/* --- Section Header Accent Underline --- */
+.section-accent {
+  position: relative;
+}
+.section-accent::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 3px;
+  margin: 12px auto 0;
+  background: linear-gradient(90deg, #0D9488, #10B981);
+  border-radius: 3px;
+}
+html.dark .section-accent::after {
+  background: linear-gradient(90deg, #2DD4BF, #34D399);
+}
+
+/* --- Feature Card Glow on Hover --- */
+.card-hover {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  border-color: #0D9488;
+  box-shadow: 0 12px 32px -8px rgba(13, 148, 136, 0.15);
+}
+html.dark .card-hover:hover {
+  border-color: #2DD4BF;
+  box-shadow: 0 12px 32px -8px rgba(45, 212, 191, 0.15);
+}
+
+/* --- Gradient Border Animation for CTA button --- */
+@keyframes border-glow {
+  0%, 100% { border-color: rgba(255,255,255,0.3); }
+  50% { border-color: rgba(255,255,255,0.6); }
+}
+.btn-outline-anim {
+  animation: border-glow 2s ease-in-out infinite;
+}
+
+/* --- Scroll Down Indicator --- */
+@keyframes scroll-hint {
+  0%, 100% { opacity: 0.4; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(6px); }
+}
+.scroll-indicator {
+  animation: scroll-hint 2s ease-in-out infinite;
+}
+
+/* --- Mobile menu close on body scroll lock --- */
+body.no-scroll { overflow: hidden; }
+
