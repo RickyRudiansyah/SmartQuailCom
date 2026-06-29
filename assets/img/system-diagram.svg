@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 320" fill="none">
+  <defs>
+    <linearGradient id="box1" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#0D9488"/>
+      <stop offset="1" stop-color="#0F766E"/>
+    </linearGradient>
+    <linearGradient id="box2" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#6366F1"/>
+      <stop offset="1" stop-color="#4F46E5"/>
+    </linearGradient>
+    <linearGradient id="box3" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#10B981"/>
+      <stop offset="1" stop-color="#059669"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#00000020"/>
+    </filter>
+  </defs>
+
+  <!-- ESP32 Hardware Box -->
+  <g filter="url(#shadow)">
+    <rect x="24" y="100" width="200" height="120" rx="16" fill="url(#box1)"/>
+    <text x="124" y="145" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="15" fill="white">ESP32</text>
+    <text x="124" y="170" text-anchor="middle" font-family="Inter, sans-serif" font-weight="400" font-size="11" fill="#CCFBF1">Hardware Sensor</text>
+    <!-- Sensor icons -->
+    <rect x="48" y="188" width="40" height="18" rx="6" fill="#0F766E" opacity="0.6"/>
+    <text x="68" y="201" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#CCFBF1">DHT22</text>
+    <rect x="96" y="188" width="40" height="18" rx="6" fill="#0F766E" opacity="0.6"/>
+    <text x="116" y="201" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#CCFBF1">MQ-135</text>
+    <rect x="144" y="188" width="56" height="18" rx="6" fill="#0F766E" opacity="0.6"/>
+    <text x="172" y="201" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#CCFBF1">Relay</text>
+  </g>
+
+  <!-- Arrow 1 -->
+  <g transform="translate(228, 150)">
+    <line x1="0" y1="10" x2="60" y2="10" stroke="#94A3B8" stroke-width="2" stroke-dasharray="6 4"/>
+    <polygon points="60,5 72,10 60,15" fill="#94A3B8"/>
+  </g>
+  <text x="283" y="145" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#94A3B8">WiFi</text>
+
+  <!-- Firebase Cloud Box -->
+  <g filter="url(#shadow)">
+    <rect x="290" y="100" width="200" height="120" rx="16" fill="url(#box2)"/>
+    <text x="390" y="140" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="15" fill="white">Firebase</text>
+    <text x="390" y="160" text-anchor="middle" font-family="Inter, sans-serif" font-weight="400" font-size="11" fill="#C7D2FE">Realtime Database</text>
+    <!-- Data path labels -->
+    <rect x="330" y="178" width="52" height="18" rx="5" fill="#4338CA" opacity="0.5"/>
+    <text x="356" y="191" text-anchor="middle" font-family="Inter, sans-serif" font-size="7" fill="#C7D2FE">/sensor</text>
+    <rect x="390" y="178" width="60" height="18" rx="5" fill="#4338CA" opacity="0.5"/>
+    <text x="420" y="191" text-anchor="middle" font-family="Inter, sans-serif" font-size="7" fill="#C7D2FE">/controls</text>
+    <rect x="360" y="200" width="60" height="18" rx="5" fill="#4338CA" opacity="0.4"/>
+    <text x="390" y="213" text-anchor="middle" font-family="Inter, sans-serif" font-size="7" fill="#C7D2FE">/history</text>
+  </g>
+
+  <!-- Arrow 2 (bi-directional) -->
+  <g transform="translate(494, 150)">
+    <line x1="0" y1="10" x2="60" y2="10" stroke="#94A3B8" stroke-width="2" stroke-dasharray="6 4"/>
+    <polygon points="60,5 72,10 60,15" fill="#94A3B8"/>
+    <polygon points="12,6 0,10 12,14" fill="#94A3B8"/>
+  </g>
+  <text x="550" y="145" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#94A3B8">HTTPS</text>
+
+  <!-- Flutter App Box -->
+  <g filter="url(#shadow)">
+    <rect x="556" y="98" width="220" height="124" rx="16" fill="url(#box3)"/>
+    <text x="666" y="140" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="15" fill="white">SmartQuail App</text>
+    <text x="666" y="160" text-anchor="middle" font-family="Inter, sans-serif" font-weight="400" font-size="11" fill="#A7F3D0">Flutter Mobile</text>
+    <!-- Mini UI -->
+    <rect x="576" y="175" width="56" height="38" rx="6" fill="#047857" opacity="0.5"/>
+    <text x="604" y="190" text-anchor="middle" font-family="Inter, sans-serif" font-size="7" fill="#A7F3D0">Dashboard</text>
+    <text x="604" y="204" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" fill="#6EE7B7">Real-time</text>
+    <rect x="640" y="175" width="56" height="38" rx="6" fill="#047857" opacity="0.5"/>
+    <text x="668" y="190" text-anchor="middle" font-family="Inter, sans-serif" font-size="7" fill="#A7F3D0">Kontrol</text>
+    <text x="668" y="204" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" fill="#6EE7B7">Manual</text>
+    <rect x="704" y="175" width="56" height="38" rx="6" fill="#047857" opacity="0.5"/>
+    <text x="732" y="190" text-anchor="middle" font-family="Inter, sans-serif" font-size="7" fill="#A7F3D0">History</text>
+    <text x="732" y="204" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" fill="#6EE7B7">Grafik</text>
+  </g>
+
+  <!-- Labels -->
+  <text x="124" y="260" text-anchor="middle" font-family="Inter, sans-serif" font-weight="500" font-size="12" fill="#64748B">IoT Hardware</text>
+  <text x="390" y="260" text-anchor="middle" font-family="Inter, sans-serif" font-weight="500" font-size="12" fill="#64748B">Cloud Database</text>
+  <text x="666" y="260" text-anchor="middle" font-family="Inter, sans-serif" font-weight="500" font-size="12" fill="#64748B">Mobile App</text>
+
+  <!-- Top title -->
+  <text x="400" y="40" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="20" fill="#1E293B">Arsitektur Sistem SmartQuail</text>
+  <text x="400" y="64" text-anchor="middle" font-family="Inter, sans-serif" font-weight="400" font-size="13" fill="#94A3B8">Real-time monitoring &amp; kontrol kandang puyuh via cloud</text>
+</svg>

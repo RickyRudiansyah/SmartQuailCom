@@ -1,0 +1,170 @@
+/* === SmartQuail Landing Page — Custom Styles === */
+
+/* --- Smooth Scroll --- */
+html { scroll-behavior: smooth; }
+
+/* --- Dark Mode Transitions --- */
+html, html *, html *::before, html *::after {
+  transition: background-color 0.3s ease, color 0.2s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* --- Glassmorphism Navbar --- */
+.nav-blur {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+}
+
+/* --- Scroll Reveal Animation --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger children */
+.reveal-stagger > * { opacity: 0; transform: translateY(24px); transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal-stagger.reveal-visible > *:nth-child(1) { transition-delay: 0.05s; opacity: 1; transform: translateY(0); }
+.reveal-stagger.reveal-visible > *:nth-child(2) { transition-delay: 0.15s; opacity: 1; transform: translateY(0); }
+.reveal-stagger.reveal-visible > *:nth-child(3) { transition-delay: 0.25s; opacity: 1; transform: translateY(0); }
+.reveal-stagger.reveal-visible > *:nth-child(4) { transition-delay: 0.35s; opacity: 1; transform: translateY(0); }
+.reveal-stagger.reveal-visible > *:nth-child(5) { transition-delay: 0.45s; opacity: 1; transform: translateY(0); }
+.reveal-stagger.reveal-visible > *:nth-child(6) { transition-delay: 0.55s; opacity: 1; transform: translateY(0); }
+
+/* --- Hero Gradient Text --- */
+.hero-gradient {
+  background: linear-gradient(135deg, #0D9488 0%, #10B981 40%, #14B8A6 70%, #34D399 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* --- Pill Badge --- */
+.pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+.pill-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #10B981;
+  animation: pulse-dot 2s infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.8); }
+}
+
+/* --- Card Hover --- */
+.card-hover {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+}
+
+/* --- Button --- */
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 28px; border-radius: 12px;
+  font-weight: 600; font-size: 0.9375rem;
+  transition: all 0.2s ease;
+}
+.btn-primary:hover { transform: translateY(-1px); }
+.btn-primary:active { transform: translateY(0); }
+
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 28px; border-radius: 12px; border: 1.5px solid;
+  font-weight: 600; font-size: 0.9375rem;
+  transition: all 0.2s ease;
+}
+.btn-outline:hover { transform: translateY(-1px); }
+
+/* --- Step Connector Line --- */
+.step-line {
+  position: relative;
+}
+.step-line::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 100%;
+  width: 40px; height: 2px;
+  background: currentColor;
+  opacity: 0.3;
+}
+@media (max-width: 767px) {
+  .step-line::after {
+    top: 100%; left: 50%;
+    width: 2px; height: 32px;
+    transform: translateX(-50%);
+  }
+  .step-line:last-child::after { display: none; }
+}
+
+/* --- Gauge Animation --- */
+@keyframes gauge-fill {
+  from { stroke-dashoffset: 283; }
+  to { stroke-dashoffset: 80; }
+}
+.gauge-ring { animation: gauge-fill 2s ease-out forwards; }
+
+/* --- Mobile Menu --- */
+.mobile-menu {
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+.mobile-menu.open {
+  opacity: 1; visibility: visible;
+}
+
+/* --- Dark mode toggle icon --- */
+#dark-toggle .sun { display: none; }
+#dark-toggle .moon { display: block; }
+html.dark #dark-toggle .sun { display: block; }
+html.dark #dark-toggle .moon { display: none; }
+
+/* --- Background Dots Pattern --- */
+.bg-dots {
+  background-image: radial-gradient(circle, currentColor 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.04;
+}
+
+/* --- Diagram SVG surface (always light for readability) --- */
+.diagram-surface {
+  background: #FFFFFF;
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+}
+html.dark .diagram-surface {
+  background: #FFFFFF;
+  border-color: #E2E8F0;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.05), 0 4px 24px rgba(0,0,0,0.2);
+}
+
+/* --- Active nav link --- */
+.nav-link.active-link {
+  color: #0D9488;
+  background: #F0FDFA;
+}
+html.dark .nav-link.active-link {
+  color: #2DD4BF;
+  background: rgba(13, 148, 136, 0.12);
+}
+
+/* --- Footer glow --- */
+.footer-glow {
+  background: radial-gradient(ellipse at 50% 0%, rgba(13, 148, 136, 0.07) 0%, transparent 70%);
+}
