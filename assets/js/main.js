@@ -77,6 +77,8 @@
     if (!btn || !menu) return;
 
     function open() {
+      menu.style.display = 'block';
+      void menu.offsetHeight;
       menu.classList.add('open');
       if (iconOpen) iconOpen.classList.add('hidden');
       if (iconClose) iconClose.classList.remove('hidden');
@@ -84,6 +86,9 @@
     }
     function close() {
       menu.classList.remove('open');
+      setTimeout(function() {
+        menu.style.display = 'none';
+      }, 300);
       if (iconOpen) iconOpen.classList.remove('hidden');
       if (iconClose) iconClose.classList.add('hidden');
       document.body.classList.remove('no-scroll');
