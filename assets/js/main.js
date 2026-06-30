@@ -39,7 +39,33 @@
   }
 
   // =====================
-  // 2. MOBILE MENU
+  // 2. YOUTUBE CLICK-TO-PLAY
+  // =====================
+  function initYouTube() {
+    var container = document.getElementById('yt-container');
+    var thumb = document.getElementById('yt-thumb');
+    var player = document.getElementById('yt-player');
+    if (!container || !thumb || !player) return;
+    var loaded = false;
+
+    container.addEventListener('click', function () {
+      if (loaded) return;
+      loaded = true;
+      thumb.style.display = 'none';
+      player.classList.remove('hidden');
+      var iframe = document.createElement('iframe');
+      iframe.src = 'https://www.youtube.com/embed/FjUddvyp5Rs?rel=0&modestbranding=1&playsinline=1';
+      iframe.className = 'absolute inset-0 w-full h-full';
+      iframe.title = 'Demo SmartQuail';
+      iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+      iframe.setAttribute('allowfullscreen', '');
+      iframe.style.border = '0';
+      player.appendChild(iframe);
+    });
+  }
+
+  // =====================
+  // 3. MOBILE MENU
   // =====================
   function initMobileMenu() {
     const btn = document.getElementById('menu-btn');
@@ -54,13 +80,13 @@
       menu.classList.add('open');
       if (iconOpen) iconOpen.classList.add('hidden');
       if (iconClose) iconClose.classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
+      document.body.classList.add('no-scroll');
     }
     function close() {
       menu.classList.remove('open');
       if (iconOpen) iconOpen.classList.remove('hidden');
       if (iconClose) iconClose.classList.add('hidden');
-      document.body.style.overflow = '';
+      document.body.classList.remove('no-scroll');
     }
 
     btn.addEventListener('click', function () {
@@ -71,7 +97,7 @@
   }
 
   // =====================
-  // 3. SCROLL REVEAL
+  // 4. SCROLL REVEAL
   // =====================
   function initScrollReveal() {
     var observer = new IntersectionObserver(
@@ -92,7 +118,7 @@
   }
 
   // =====================
-  // 4. COUNTER ANIMATION (IMPACT SECTION)
+  // 5. COUNTER ANIMATION (IMPACT SECTION)
   // =====================
   function initCounters() {
     var started = false;
@@ -102,16 +128,17 @@
           if (entry.isIntersecting && !started) {
             started = true;
             document.querySelectorAll('.counter-target').forEach(function (el) {
-              var target = parseInt(el.getAttribute('data-target'), 10);
+              var target = parseFloat(el.getAttribute('data-target'));
               var duration = 2000;
               var step = target / (duration / 16);
               var current = 0;
               var suffix = el.getAttribute('data-suffix') || '';
+              var decimals = (target % 1 !== 0) ? 1 : 0;
 
               function tick() {
                 current += step;
                 if (current >= target) { current = target; }
-                el.textContent = Math.floor(current) + suffix;
+                el.textContent = current.toFixed(decimals) + suffix;
                 if (current < target) { requestAnimationFrame(tick); }
               }
               tick();
@@ -127,7 +154,7 @@
   }
 
   // =====================
-  // 5. ACTIVE NAV LINK HIGHLIGHT
+  // 6. ACTIVE NAV LINK HIGHLIGHT
   // =====================
   function initActiveNav() {
     var sections = document.querySelectorAll('section[id]');
@@ -160,6 +187,7 @@
   // =====================
   ready(function () {
     initDarkMode();
+    initYouTube();
     initMobileMenu();
     initScrollReveal();
     initCounters();

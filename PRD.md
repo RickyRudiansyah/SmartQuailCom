@@ -38,7 +38,7 @@ Brand awareness + showcase produk — menampilkan SmartQuail sebagai solusi IoT 
 | Layer | Pilihan |
 |---|---|
 | Markup | HTML5 |
-| Styling | Tailwind CSS v3 via CDN + custom CSS minimal |
+| Styling | Tailwind CSS v3 (production build via npm) + custom CSS minimal |
 | Script | Vanilla JavaScript (ES6+) |
 | Font | Inter (Google Fonts CDN) |
 | Ikon | Lucide SVG inline |
@@ -66,7 +66,7 @@ Brand awareness + showcase produk — menampilkan SmartQuail sebagai solusi IoT 
 - **Dark mode** — class `dark` pada `<html>`, Tailwind `dark:` variant, localStorage persist, OS preference fallback
 - **Responsive** — Mobile-first, breakpoint: sm(640px) / md(768px) / lg(1024px) / xl(1280px)
 - **Animasi** — Scroll reveal via IntersectionObserver (fade-in + translateY), hover scale pada card
-- **Performa** — Zero JS framework, zero build step, load <500ms
+- **Performa** — Zero JS framework, production build via `npm run build` (CSS ~30KB), load <500ms
 
 ## 9. Status
 
@@ -77,7 +77,7 @@ Brand awareness + showcase produk — menampilkan SmartQuail sebagai solusi IoT 
 | Dark Mode | ✅ Done |
 | Responsive | ✅ Done |
 | SVGs | ✅ Done |
-| Screenshot dashboard asli | ⏳ Placeholder |
-| Foto tim asli | ⏳ Placeholder |
-| Nomor WA / Email | ⏳ Placeholder |
-| Data dampak konkret | ⏳ Placeholder |
+| Screenshot dashboard asli | ✅ Done (YouTube embed + click-to-play thumbnail) |
+| Foto tim asli | ✅ Done (ricky.jpeg, marcell.jpg) |
+| Nomor WA / Email | ✅ Done (+62818860008, marcellinoasanuddin@gmail.com) |
+| Data dampak konkret | ⏳ Data ilustratif (0.3°C akurasi, 2s update, 3x pakan, THI 78) |

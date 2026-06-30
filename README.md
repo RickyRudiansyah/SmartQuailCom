@@ -8,10 +8,9 @@
   [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
   [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v3-06B6D4?style=flat-square&logo=tailwindcss)](https://tailwindcss.com)
   [![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-  [![Zero Dependencies](https://img.shields.io/badge/dependencies-zero-brightgreen?style=flat-square)](#)
   [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
-  **Live:** [github.com/RickyRudiansyah/Landing-Page-SmartQuail](https://github.com/RickyRudiansyah/Landing-Page-SmartQuail)
+  **Live:** [rickyrudiansyah.github.io/Landing-Page-SmartQuail](https://rickyrudiansyah.github.io/Landing-Page-SmartQuail)
 </div>
 
 ---
@@ -38,33 +37,35 @@ Landing page ini adalah halaman *showcase* untuk proyek **SmartQuail** — siste
 | Layer | Teknologi | Keterangan |
 |---|---|---|
 | Markup | HTML5 | Semantic, accessible |
-| Styling | Tailwind CSS v3 | Via CDN, zero build step |
+| Styling | Tailwind CSS v3 | Production build via npm (~30KB CSS) |
 | Script | Vanilla JavaScript ES6+ | Dark mode, scroll reveal, mobile nav |
 | Font | Inter | Google Fonts CDN |
 | Ikon | SVG Inline | No external icon library |
-| Hosting | Static | Bisa langsung buka file / deploy Vercel / Netlify |
+| Hosting | Static | GitHub Pages / Vercel / Netlify |
 
-**Nihil dependency. Nihil build step.** Cukup double-click `index.html`.
+**Nihil dependency runtime. Build step:** `npm install && npm run build`. **Dev server:** `npm run dev` (YouTube embed perlu local server — tidak bisa via `file://`).
 
 ## Struktur File
 
 ```
 Landing_Page/
 ├── index.html                     # Single-page, 10 section
+├── package.json                   # Tailwind CSS build + dev server
+├── tailwind.config.js             # Tailwind config (teal palette)
 ├── PRD.md                         # Product Requirement Document
 ├── README.md                      # File ini
 ├── .gitignore
+├── src/
+│   └── input.css                  # Tailwind directives source
 └── assets/
     ├── css/
+    │   ├── tailwind.min.css       # Production build output (~30KB)
     │   └── style.css              # Custom CSS: animasi, glassmorphism, dark mode
     ├── js/
-    │   └── main.js                # Dark mode toggle, scroll reveal, counter, mobile nav
+    │   └── main.js                # 6 modules: dark mode, YouTube, mobile nav, scroll reveal, counter, active nav
     └── img/
-        ├── smartquail.png         # Logo asli SmartQuail
-        ├── logo.svg               # Logo SVG fallback
-        ├── logo_smart_quail.jpeg  # Logo varian
-        ├── system-diagram.svg     # Diagram SVG (fallback)
-        ├── dashboard-mock.svg     # Mockup dashboard (fallback)
+        ├── smartquail.png         # Logo SmartQuail
+        ├── logo.svg               # Logo SVG
         └── team/
             ├── ricky.jpeg         # Foto Ricky Rudiansyah
             └── marcell.jpg        # Foto Marcellino Asanuddin
@@ -87,18 +88,26 @@ Landing_Page/
 
 ## Cara Menjalankan
 
-### Tanpa server (rekomendasi untuk testing cepat)
+### Production build
 
+```bash
+npm install
+npm run build        # generate assets/css/tailwind.min.css (~30KB)
 ```
-double-click index.html
+
+Lalu buka `index.html` lewat local server (YouTube embed tidak bisa via `file://`):
+
+```bash
+npm run dev          # serve via http://localhost:3000
 ```
 
-### Deploy ke Vercel / Netlify
+Atau deploy langsung ke GitHub Pages / Vercel / Netlify.
 
-1. Push ke GitHub
-2. Buka [vercel.com](https://vercel.com) atau [netlify.com](https://netlify.com)
-3. Import repo → Deploy (1 klik)
-4. Dapet domain HTTPS gratis
+### Development (watch mode)
+
+```bash
+npm run watch        # auto-rebuild CSS setiap ada perubahan
+```
 
 ## Fitur
 
@@ -154,7 +163,6 @@ double-click index.html
 | Lokasi | Item |
 |---|---|
 | `index.html` Impact section | Data konkret dampak (akurasi sensor, penurunan THI, dll) — saat ini data ilustratif |
-| `assets/img/dashboard-mock.svg` | Screenshot dashboard Flutter asli — saat ini sudah diganti YouTube embed |
 
 ## Warna & Design System
 
@@ -170,6 +178,20 @@ double-click index.html
 | Font | Inter | — | 400, 500, 600, 700, 800, 900 |
 
 ## Changelog
+
+### v1.3.0 (30 Jun 2026) — Production Build & Polish
+
+| Komponen | Perubahan |
+|---|---|
+| **Tailwind** | CDN (3MB+) → production build via npm (~30KB CSS) |
+| **YouTube** | Thumbnail click-to-play pattern, fix Error 153, fallback link |
+| **Counter** | Fix bug `parseInt` pada desimal (0.3°C sekarang beranimasi) |
+| **CSS** | Hapus transisi universal `html *` (jank fix), deduplicate `.card-hover` |
+| **Aksesibilitas** | Skip-to-content link, `:focus-visible` styles, mobile menu class-based scroll lock |
+| **SEO** | Favicon, Open Graph + Twitter Card meta tags |
+| **Performa** | Image `width`/`height` atribut (CLS fix), hapus 3 aset tak terpakai |
+| **Navigasi** | Link "Masalah" & "Dampak" ke navbar |
+| **DevOps** | `npm run dev` local server, `tailwind.config.js`, updated PRD & README |
 
 ### v1.2.0 (30 Jun 2026) — Demo + UI Polish
 

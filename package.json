@@ -1,0 +1,14 @@
+{
+  "name": "smartquail-landing",
+  "version": "1.3.0",
+  "description": "SmartQuail — Landing page IoT monitoring kandang puyuh",
+  "private": true,
+  "scripts": {
+    "build": "tailwindcss -i ./src/input.css -o ./assets/css/tailwind.min.css --minify",
+    "watch": "tailwindcss -i ./src/input.css -o ./assets/css/tailwind.min.css --watch",
+    "dev": "npx serve ."
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
+  }
+}

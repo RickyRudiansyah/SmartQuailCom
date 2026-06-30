@@ -4,7 +4,18 @@
 html { scroll-behavior: smooth; }
 
 /* --- Dark Mode Transitions --- */
-html, html *, html *::before, html *::after {
+body, nav, section, footer,
+.bg-white, .bg-gray-50\/50, .bg-gray-50,
+.dark\:bg-gray-950, .dark\:bg-gray-900\/30, .dark\:bg-gray-800\/60, .dark\:bg-gray-800\/80,
+.bg-white\/75, .dark\:bg-gray-950\/75,
+.border-gray-200\/50, .dark\:border-gray-800\/50,
+.border-gray-100, .dark\:border-gray-700\/50,
+.text-gray-900, .dark\:text-white,
+.text-gray-600, .dark\:text-gray-400,
+.text-gray-500, .dark\:text-gray-400,
+.text-gray-400, .dark\:text-gray-500,
+.text-gray-700, .dark\:text-gray-300,
+a, button, .btn-primary, .btn-outline {
   transition: background-color 0.3s ease, color 0.2s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -64,13 +75,7 @@ html, html *, html *::before, html *::after {
   50% { opacity: 0.5; transform: scale(1.8); }
 }
 
-/* --- Card Hover --- */
-.card-hover {
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-.card-hover:hover {
-  transform: translateY(-4px);
-}
+/* --- Card Hover (see also feature card glow below) --- */
 
 /* --- Button --- */
 .btn-primary {
@@ -234,4 +239,19 @@ html.dark .card-hover:hover {
 
 /* --- Mobile menu close on body scroll lock --- */
 body.no-scroll { overflow: hidden; }
+
+/* --- Focus visible styles (accessibility) --- */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #0D9488;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+html.dark a:focus-visible,
+html.dark button:focus-visible {
+  outline-color: #2DD4BF;
+}
+
+/* --- YouTube embed iframe --- */
+#yt-player iframe { border: 0; }
 
