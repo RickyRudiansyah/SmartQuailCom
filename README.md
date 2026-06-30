@@ -10,7 +10,7 @@
   [![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
   [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
-  **Live:** [rickyrudiansyah.github.io/Landing-Page-SmartQuail](https://rickyrudiansyah.github.io/Landing-Page-SmartQuail)
+  **Live:** [rickyrudiansyah.github.io/SmartQuailCom](https://rickyrudiansyah.github.io/SmartQuailCom)
 </div>
 
 ---
