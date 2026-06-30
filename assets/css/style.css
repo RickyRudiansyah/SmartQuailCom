@@ -96,22 +96,44 @@ a, button, .btn-primary, .btn-outline {
 .btn-outline:hover { transform: translateY(-1px); }
 
 /* --- Step Connector Line --- */
-.step-line {
-  position: relative;
-}
-.step-line::after {
-  content: '';
-  position: absolute;
-  top: 50%; left: 100%;
-  width: 40px; height: 2px;
-  background: currentColor;
-  opacity: 0.3;
-}
-@media (max-width: 767px) {
+.step-line { position: relative; }
+
+/* Mobile: 1 column — vertical connectors, hide last child */
+@media (max-width: 639px) {
   .step-line::after {
+    content: '';
+    position: absolute;
     top: 100%; left: 50%;
-    width: 2px; height: 32px;
+    width: 2px; height: 24px;
     transform: translateX(-50%);
+    background: currentColor;
+    opacity: 0.3;
+  }
+  .step-line:last-child::after { display: none; }
+}
+
+/* Tablet: 2 columns — horizontal connectors, hide every 2nd child */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .step-line::after {
+    content: '';
+    position: absolute;
+    top: 50%; left: 100%;
+    width: 40px; height: 2px;
+    background: currentColor;
+    opacity: 0.3;
+  }
+  .step-line:nth-child(2n)::after { display: none; }
+}
+
+/* Desktop: 4 columns — horizontal connectors, hide last child */
+@media (min-width: 1024px) {
+  .step-line::after {
+    content: '';
+    position: absolute;
+    top: 50%; left: 100%;
+    width: 40px; height: 2px;
+    background: currentColor;
+    opacity: 0.3;
   }
   .step-line:last-child::after { display: none; }
 }
@@ -126,10 +148,12 @@ a, button, .btn-primary, .btn-outline {
 /* --- Mobile Menu --- */
 .mobile-menu {
   opacity: 0; visibility: hidden;
-  transition: opacity 0.25s ease, visibility 0.25s ease;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .mobile-menu.open {
   opacity: 1; visibility: visible;
+  transform: translateY(0);
 }
 
 /* --- Dark mode toggle icon --- */

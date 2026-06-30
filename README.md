@@ -179,6 +179,21 @@ npm run watch        # auto-rebuild CSS setiap ada perubahan
 
 ## Changelog
 
+### v1.4.0 (30 Jun 2026) — Mobile Responsive Fix
+
+| Komponen | Perubahan |
+|---|---|
+| **Responsive Layout** | Fix horizontal overflow di hero checkmarks & data flow indicator (`flex-wrap`) |
+| **Hero** | Decoration blobs responsive sizing (300px→600px), grid gap responsive, paragraf `text-base` di mobile |
+| **Card Padding** | Semua card `p-8` → `p-6 sm:p-8` (Problem, Impact, Team) — lebih lega di layar ≤360px |
+| **Grid Gaps** | Responsive gaps di semua section: `gap-6 sm:gap-8 lg:gap-12/16` |
+| **Step Connector** | Rewrite 3-breakpoint CSS — fix arrow orphan di tablet 2-col layout, height overlap fix |
+| **Mobile Menu** | Tambah `translateY` slide animation + `cubic-bezier` transition |
+| **Text Readability** | `text-[10px]/[11px]` → `text-[11px] sm:text-xs` di semua tag badges & labels (16 elemen) |
+| **Touch States** | `active:scale-95` di nav links, GitHub & LinkedIn buttons |
+| **Image Perf** | `loading="lazy"` + `decoding="async"` di foto tim, `fetchpriority="high"` di logo navbar |
+| **Build** | Rebuild `tailwind.min.css` (~31KB) dengan semua utility responsive baru |
+
 ### v1.3.0 (30 Jun 2026) — Production Build & Polish
 
 | Komponen | Perubahan |
